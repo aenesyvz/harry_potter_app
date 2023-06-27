@@ -6,10 +6,10 @@ import 'package:harry_potter_app/models/character.dart';
 
 import 'package:http/http.dart' as http;
 class CharacterController extends GetxController{
-
+  
   RxList<Character> _characterList = <Character>[].obs;
   RxList<Character> _filteredPosts = <Character>[].obs;
-
+  
   List<Character> get characterList => _filteredPosts.isNotEmpty ? _filteredPosts.value : _characterList.value;
   Future<void> getAll() async {
     try {

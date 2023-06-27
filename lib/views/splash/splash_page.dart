@@ -4,25 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:harry_potter_app/core/constants/color_constants.dart';
 import 'package:harry_potter_app/views/home/home_page.dart';
+class SplashPage extends StatelessWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
-
-  @override
-  State<SplashPage> createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 3)).then((value) => {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()))
-    });
-  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    Future.delayed(const Duration(seconds: 3)).then((value) => {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  HomePage()))
+    });
+
+    return const Scaffold(
       backgroundColor: ColorConstants.maastrichtBlue,
       body: SafeArea(
         child: SizedBox(
@@ -30,7 +21,7 @@ class _SplashPageState extends State<SplashPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children:const [
+            children:[
               Text("IsTechSoft",style: TextStyle(color: Colors.white,fontSize: 72,fontWeight: FontWeight.bold),),
               SizedBox(height: 50,),
               SpinKitFadingCircle(
